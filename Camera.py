@@ -1,8 +1,3 @@
-##WORKING CODE
-
-# Core opencv code provided by Einsteinium Studios
-# Revisions to work with Pi Camera v3 by Briana Bouchard
-
 import board
 import RPi.GPIO as GPIO
 import digitalio
@@ -19,7 +14,7 @@ picam2.start() # activates camera
 
 time.sleep(1) # wait to give camera time to start up
  
-#create boundary for red values as two arrays
+#create boundary for color values
 low_blue = np.array([94, 80, 2])
 high_blue = np.array([126, 255, 255])
 
@@ -171,7 +166,6 @@ def moveStepsLeft(input_steps, speed):
 
     current_step1 = 0
     input_steps1=round(input_steps)
-    print(input_steps1)
     delay = 60/(steps_rev*speed)
    
     # Determines the direction based on sign of input_steps
@@ -198,12 +192,12 @@ previous = 3
 while(True):
        
 
-	#Percent color detection
+    #Percent color detection
     img_name = 'image.jpg'
     picam2.capture_file(img_name) #take image 
 
     img = cv.imread("image.jpg") #read image with open cv, to get the bgr value of one pixel index using print(img[row][col])
-	# Crop the image
+    # Crop the image
     crop_img = img[50:130, 0:160]
     hsv = cv.cvtColor(crop_img, cv2.COLOR_BGR2HSV)
     total_pixels = crop_img.shape #returns [2529, 4608] as the shape of the image
