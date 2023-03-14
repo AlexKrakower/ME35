@@ -1,0 +1,7 @@
+0 Mario
+1 Tractor
+2 Bear
+3 Kiwi
+4 Mug
+5 Rubix Cube
+6 Elephant
